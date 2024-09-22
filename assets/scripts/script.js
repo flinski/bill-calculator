@@ -20,7 +20,7 @@ const calculateBill = function ({ currentReadings, previousReadings, tariff, deb
 	const paymentWithDebt =
 		debt >= 0
 			? Number((payment + debt).toFixed(2))
-			: Number((payment - Math.abs(mandatoryPayment)).toFixed(2))
+			: Number((payment - Math.abs(debt)).toFixed(2))
 
 	return { differenceReadings, payment, paymentWithDebt }
 }
