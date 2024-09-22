@@ -23,7 +23,11 @@
   --font-family: "Inter", sans-serif;
   --color-text: #000;
   --color-background: #fff;
-  --container-width: 77.5rem;
+  --color-accent: #4ade80;
+  --color-accent-light: #86efac;
+  --color-accent-dark: #22c55e;
+  --border-radius: 0rem;
+  --container-width: 25rem;
   --container-padding-x: 1.25rem;
   --transition-duration: 0.2s;
 }
@@ -92,7 +96,7 @@ svg * {
 
 body {
   font-family: var(--font-family);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--color-text);
@@ -110,6 +114,24 @@ input,
 textarea,
 svg * {
   transition-duration: var(--transition-duration);
+}
+
+* {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .container {
@@ -141,4 +163,68 @@ svg * {
   .visible-mobile {
     display: none !important;
   }
+}
+
+.bill-calculator__body {
+  padding-block: 4.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1.25rem;
+}
+.bill-calculator__inputs-item {
+  display: flex;
+  flex-direction: column;
+}
+.bill-calculator__inputs-item:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.bill-calculator__label {
+  margin-bottom: 0.3125rem;
+}
+.bill-calculator__input {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 0.0625rem solid var(--color-text);
+  border-radius: var(--border-radius);
+}
+.bill-calculator__input:focus-visible {
+  outline: 0.0625rem solid var(--color-text);
+}
+.bill-calculator__button {
+  align-self: flex-end;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 2.75rem;
+  padding-inline: 0.75rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  color: var(--color-background);
+  background-color: var(--color-accent-dark);
+}
+@media (hover: hover) {
+  .bill-calculator__button:hover {
+    background-color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .bill-calculator__button:active {
+    background-color: var(--color-accent);
+  }
+}
+.bill-calculator__results-item {
+  display: flex;
+  flex-direction: column;
+}
+.bill-calculator__results-item:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+.bill-calculator__title {
+  margin-bottom: 0.3125rem;
+}
+.bill-calculator__difference, .bill-calculator__payment, .bill-calculator__debt {
+  font-weight: 600;
 }
