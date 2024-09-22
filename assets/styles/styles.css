@@ -1,21 +1,30 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
-  --color-dark: #191a23;
-  --color-dark-alt: #292a32;
-  --color-light: #ffffff;
-  --color-accent: #b9ff66;
-  --color-gray: #f3f3f3;
-  --color-gray-alt: #898989;
-  --border: 0.0625rem solid var(--color-dark);
-  --border-radius: 0.875rem;
-  --border-radius-small: 0.4375rem;
-  --border-radius-large: 2.8125rem;
-  --shadow: 0 0.3125rem 0 0 var(--color-dark);
-  --font-family-primary: "Space Grotesk", sans-serif;
+  --font-family: "Inter", sans-serif;
+  --color-text: #000;
+  --color-background: #fff;
   --container-width: 77.5rem;
-  --container-padding-inline: 1.25rem;
-  --section-padding-block: 4.375rem;
-  --input-height: 3.6875rem;
-  --button-height: 4.25rem;
+  --container-padding-x: 1.25rem;
   --transition-duration: 0.2s;
 }
 
@@ -40,8 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+  font: inherit;
 }
 
 img {
@@ -83,12 +91,17 @@ svg * {
 }
 
 body {
-  font-family: var(--font-family-primary);
-  font-size: clamp(1rem, 0.9583333333rem + 0.1851851852vw, 1.125rem);
+  font-family: var(--font-family);
+  font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--color-dark);
-  background-color: var(--color-light);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
 }
 
 a,
@@ -99,39 +112,10 @@ svg * {
   transition-duration: var(--transition-duration);
 }
 
-h1 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-h2 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-h3 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-h4 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-h5 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-h6 {
-  font-size: clamp(2.6875rem, 2.3333333333rem + 1.5740740741vw, 3.75rem);
-}
-
-.wrapper {
-  min-height: 100%;
-  overflow: hidden;
-}
-
 .container {
-  max-width: calc(var(--container-width) + 2 * var(--container-padding-inline));
+  max-width: calc(var(--container-width) + 2 * var(--container-padding-x));
   margin-inline: auto;
-  padding-inline: var(--container-padding-inline);
+  padding-inline: var(--container-padding-x);
 }
 
 .visually-hidden {
