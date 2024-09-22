@@ -14,35 +14,46 @@
 					<div class="bill-calculator__body">
 						<ul class="bill-calculator__inputs">
 							<li class="bill-calculator__inputs-item">
-								<label class="bill-calculator__label" for="current">Текущие показания:</label>
-								<input class="bill-calculator__input" id="current" type="number" />
+								<label class="bill-calculator__label" for="inputCurrent">Текущие показания:</label>
+								<input class="bill-calculator__input" id="inputCurrent" type="number" />
 							</li>
 							<li class="bill-calculator__inputs-item">
-								<label class="bill-calculator__label" for="previous">Предыдущие показания:</label>
-								<input class="bill-calculator__input" id="previous" type="number" />
+								<label class="bill-calculator__label" for="inputPrevious"
+									>Предыдущие показания:</label
+								>
+								<input class="bill-calculator__input" id="inputPrevious" type="number" />
 							</li>
 							<li class="bill-calculator__inputs-item">
-								<label class="bill-calculator__label" for="tariff">Тариф:</label>
-								<input class="bill-calculator__input" id="tariff" type="number" />
+								<label class="bill-calculator__label" for="inputTariff">Тариф:</label>
+								<input class="bill-calculator__input" id="inputTariff" type="number" />
 							</li>
 							<li class="bill-calculator__inputs-item">
-								<label class="bill-calculator__label" for="debt">Долг [+] или Аванс [-]:</label>
-								<input class="bill-calculator__input" id="debt" type="number" />
+								<label class="bill-calculator__label" for="inputDebt"
+									>Долг [+] или Аванс [-]:</label
+								>
+								<input class="bill-calculator__input" id="inputDebt" type="number" />
 							</li>
 						</ul>
-						<button class="bill-calculator__button" type="button">Рассчитать</button>
+						<div class="bill-calculator__buttons">
+							<button class="bill-calculator__button-clear" id="buttonClear" type="button">
+								Очистить
+							</button>
+							<button class="bill-calculator__button-calculate" id="buttonCalculate" type="button">
+								Рассчитать
+							</button>
+						</div>
 						<ul class="bill-calculator__results">
 							<li class="bill-calculator__results-item">
 								<div class="bill-calculator__title">Расход:</div>
-								<div class="bill-calculator__difference">0</div>
+								<div class="bill-calculator__difference" id="difference">0</div>
 							</li>
 							<li class="bill-calculator__results-item">
 								<div class="bill-calculator__title">Платеж:</div>
-								<div class="bill-calculator__payment">0</div>
+								<div class="bill-calculator__payment" id="payment">0</div>
 							</li>
 							<li class="bill-calculator__results-item">
 								<div class="bill-calculator__title">Платёж с учётом долга / аванса:</div>
-								<div class="bill-calculator__debt">0</div>
+								<div class="bill-calculator__debt" id="debt">0</div>
 							</li>
 						</ul>
 					</div>

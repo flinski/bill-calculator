@@ -1,12 +1,19 @@
 'use strict'
 
-const billData = {
-	currentReadings: 91724,
-	previousReadings: 91690,
-	tariff: 8.34,
-	debt: 0,
-}
+// Variables
+const $inputCurrent = document.getElementById('inputCurrent')
+const $inputPrevious = document.getElementById('inputPrevious')
+const $inputTariff = document.getElementById('inputTariff')
+const $inputDebt = document.getElementById('inputDebt')
 
+const $buttonCalculate = document.getElementById('buttonCalculate')
+const $buttonClear = document.getElementById('buttonClear')
+
+const $difference = document.getElementById('difference')
+const $payment = document.getElementById('payment')
+const $debt = document.getElementById('debt')
+
+// Functions
 const calculateBill = function ({ currentReadings, previousReadings, tariff, debt }) {
 	const differenceReadings = currentReadings - previousReadings
 	const payment = Number((differenceReadings * tariff).toFixed(2))
@@ -18,6 +25,31 @@ const calculateBill = function ({ currentReadings, previousReadings, tariff, deb
 	return { differenceReadings, payment, paymentWithDebt }
 }
 
-const bill = calculateBill(billData)
+const displayBill = function (bill) {
+	$difference.textContent = bill.differenceReadings
+	$payment.textContent = bill.payment
+	$debt.textContent = bill.paymentWithDebt
+}
 
-console.log(bill)
+const clearInputs = function () {
+	$inputCurrent.value = ''
+	$inputPrevious.value = ''
+	$inputTariff.value = ''
+	$inputDebt.value = ''
+}
+
+// Event Listeners
+$buttonCalculate.addEventListener('click', () => {
+	const billData = {
+		currentReadings: Number($inputCurrent.value),
+		previousReadings: Number($inputPrevious.value),
+		tariff: Number($inputTariff.value),
+		debt: Number($inputDebt.value),
+	}
+
+	const bill = calculateBill(billData)
+
+	displayBill(bill)
+})
+
+$buttonClear.addEventListener('click', clearInputs)
