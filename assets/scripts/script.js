@@ -15,12 +15,9 @@ const $debt = document.getElementById('debt')
 
 // Functions
 const calculateBill = function ({ currentReadings, previousReadings, tariff, debt }) {
-	const differenceReadings = currentReadings - previousReadings
+	const differenceReadings = Number((currentReadings - previousReadings).toFixed(2))
 	const payment = Number((differenceReadings * tariff).toFixed(2))
-	const paymentWithDebt =
-		debt >= 0
-			? Number((payment + debt).toFixed(2))
-			: Number((payment - Math.abs(debt)).toFixed(2))
+	const paymentWithDebt = Number((payment + debt).toFixed(2))
 
 	return { differenceReadings, payment, paymentWithDebt }
 }
